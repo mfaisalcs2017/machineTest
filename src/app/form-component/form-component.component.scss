@@ -1,0 +1,41 @@
+#formData {
+  background: #ccc;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  #form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #fff;
+    width: 40%;
+    height: 91%;
+    border-radius: 2rem;
+
+    mat-form-field {
+      padding: .4rem;
+      width: 80%;
+      font-size: 1rem;
+    }
+
+    .btnstyle {
+      padding: .5rem;
+      width: 80%;
+
+      button {
+        color: white;
+        height: 2.9rem;
+        width: 100%;
+        font-size: 1.2rem;
+        font-weight: 400;
+        border: none;
+        border-radius: .5rem;
+        cursor: pointer;
+        outline: none;
+      }
+    }
+  }
+}

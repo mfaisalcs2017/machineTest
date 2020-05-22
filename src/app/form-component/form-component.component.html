@@ -1,0 +1,81 @@
+<h1 style="text-align: center;position: absolute;left: 47.5%;">Test 1</h1>
+<div id="formData">
+  <form id="form" name="form" [formGroup]="bankForm">
+    <h2 style="text-align: center;">Bank Form</h2>
+    <mat-form-field class="example-full-width">
+      <mat-label>First Name*</mat-label>
+      <input matInput placeholder="Enter First Name, Ex. John" formControlName="firstName">
+      <mat-error *ngIf="formControls.firstName.hasError('required')">
+        First Name is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="formControls.firstName.hasError('pattern')">
+        Minimum 3 character required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Last Name*</mat-label>
+      <input matInput placeholder="Enter Last Name, Ex. Doe" formControlName="lastName">
+      <mat-error *ngIf="formControls.lastName.hasError('required')">
+        Last Name is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="formControls.lastName.hasError('pattern')">
+        Minimum 3 character required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Gender*</mat-label>
+      <mat-select formControlName="gender">
+        <mat-option *ngFor="let gender of genders" [value]="gender">
+          {{gender}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="formControls.gender.hasError('required')">
+        Gender is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Phone Number (Optional)</mat-label>
+      <input matInput placeholder="Enter Phone No. (Optional)" formControlName="phoneNumber" maxlength="10">
+      <mat-error *ngIf="formControls.phoneNumber.hasError('pattern')">
+        Phone No. should be 10 character
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Email*</mat-label>
+      <input matInput placeholder="Enter Email" formControlName="email">
+      <mat-error *ngIf="formControls.email.hasError('required')">
+        Email Id is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="formControls.email.hasError('pattern')">
+        Enter valid email id
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Account No.*</mat-label>
+      <input matInput placeholder="Enter Account No." formControlName="accountNo">
+      <mat-error *ngIf="formControls.accountNo.hasError('required')">
+        Account Number is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="formControls.accountNo.hasError('pattern')">
+        Enter valid Account Number
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>IFSC Code*</mat-label>
+      <input matInput placeholder="Enter IFSC Code" formControlName="ifscCode">
+      <mat-error *ngIf="formControls.ifscCode.hasError('required')">
+        IFSC Code is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="formControls.ifscCode.hasError('pattern')">
+        Enter valid IFSC code
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Notes (Optional)</mat-label>
+      <input matInput placeholder="Enter Notes (Optional)" formControlName="notes">
+    </mat-form-field>
+    <div class="btnstyle">
+      <button (click)="postBankDetails(bankForm)" mat-raised-button color="primary">Submit</button>
+    </div>
+  </form>
+</div>

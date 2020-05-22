@@ -1,0 +1,58 @@
+<h1 style="text-align: center;">Test 2</h1>
+<div id="dropDown">
+  <mat-form-field>
+    <mat-label>City</mat-label>
+    <mat-select [(ngModel)]="selected" (selectionChange)="cityChange($event)">
+      <mat-option *ngFor="let city of cities" [value]="city">
+        {{city}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<table mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="branch">
+    <th class="header" mat-header-cell *matHeaderCellDef>
+      Branch
+      <mat-form-field class="filter" floatLabel="never">
+        <mat-label>Search</mat-label>
+        <input matInput [formControl]="branchFilter">
+      </mat-form-field>
+    </th>
+    <td mat-cell *matCellDef="let city">{{city.branch}}</td>
+  </ng-container>
+  <ng-container matColumnDef="address">
+    <th class="header" mat-header-cell *matHeaderCellDef>
+      Address
+      <mat-form-field class="filter" floatLabel="never">
+        <mat-label>Search</mat-label>
+        <input matInput [formControl]="addressFilter">
+      </mat-form-field>
+    </th>
+    <td mat-cell *matCellDef="let city">{{city.address}}</td>
+  </ng-container>
+  <ng-container matColumnDef="city">
+    <th class="header" mat-header-cell *matHeaderCellDef>
+      City
+      <mat-form-field class="filter" floatLabel="never">
+        <mat-label>Search</mat-label>
+        <input matInput [formControl]="cityFilter">
+      </mat-form-field>
+    </th>
+    <td mat-cell *matCellDef="let city">{{city.city}}</td>
+  </ng-container>
+  <ng-container matColumnDef="ifsc">
+    <th class="header" mat-header-cell *matHeaderCellDef>
+      IFSC Code
+    </th>
+    <td mat-cell *matCellDef="let city">{{city.ifsc}}</td>
+  </ng-container>
+  <ng-container matColumnDef="bank_name">
+    <th class="header" mat-header-cell *matHeaderCellDef>
+      Bank Name
+    </th>
+    <td mat-cell *matCellDef="let city">{{city.bank_name}}</td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let city; columns: columnsToDisplay" (click)="getDescriptionInModal(city)"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
